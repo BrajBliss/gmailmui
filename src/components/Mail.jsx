@@ -57,8 +57,9 @@ const Mail = (props) => {
 					</Box>
 					<Typography
 						sx={{
-							fontWeight: 'bold',
+							fontWeight: props.read ? 'normal' : 'bold',
 							marginLeft: '-1.2rem',
+							color: props.read ? '#BABABA' : '',
 						}}>
 						Community Mailer
 					</Typography>
@@ -72,12 +73,21 @@ const Mail = (props) => {
 					}}>
 					<Typography
 						sx={{
-							fontWeight: 'bold',
+							fontWeight: props.read ? 'normal' : 'bold',
+							color: props.read ? '#BABABA' : '',
 						}}>
 						This is the subject line which is in bold
 					</Typography>
-					<Typography>-</Typography>
-					<Typography>
+					<Typography
+						sx={{
+							color: '#787778',
+						}}>
+						-
+					</Typography>
+					<Typography
+						sx={{
+							color: '#8B8B8B',
+						}}>
 						This is the snippet of the mail which is supposed to cut
 						off right here...
 					</Typography>
