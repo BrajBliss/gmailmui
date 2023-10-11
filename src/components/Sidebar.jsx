@@ -9,6 +9,8 @@ import {
 	ListItemText,
 	Typography,
 	styled,
+	useMediaQuery,
+	useTheme,
 } from '@mui/material';
 import React, { useState } from 'react';
 import InboxRoundedIcon from '@mui/icons-material/InboxRounded';
@@ -28,6 +30,10 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 
 const Sidebar = () => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+	// console.log(`isMobile: ${isMobile}`);
+
 	const [open, setOpen] = useState(false);
 
 	const handleClick = () => {
@@ -37,10 +43,13 @@ const Sidebar = () => {
 	return (
 		<Box
 			overflow='hidden'
-			flex={1}
 			// height={'100%'}
 			display='flex'
-			flexDirection='column'>
+			flexDirection='column'
+			sx={{
+				flex: isMobile ? '' : 1,
+				width: isMobile ? '60px' : '',
+			}}>
 			<IconButton
 				size='large'
 				aria-label='compose'
@@ -54,8 +63,8 @@ const Sidebar = () => {
 					padding: '0 15px',
 					alignItems: 'center',
 					justifyContent: 'space-around',
-					width: '155px',
-					height: '60px',
+					width: isMobile ? '50px' : '155px',
+					height: isMobile ? '50px' : '60px',
 					backgroundColor: '#fff',
 					borderRadius: '18px',
 					':hover': {
@@ -68,13 +77,21 @@ const Sidebar = () => {
 						fontSize: '27px',
 					}}
 				/>
-				<Typography variant='h6' fontSize={'16px'} color={'#5F6368'}>
-					Compose
-				</Typography>
+				{!isMobile && (
+					<Typography
+						variant='h6'
+						fontSize={'16px'}
+						color={'#5F6368'}>
+						Compose
+					</Typography>
+				)}
 			</IconButton>
-			<Box overflow={'auto'}>
+			<Box
+				sx={{
+					overflow: isMobile ? '' : 'auto',
+				}}>
 				<List
-					overflow={'auto'}
+					// overflow={'auto'}
 					flex={1}
 					sx={{
 						width: '100%',
@@ -82,79 +99,79 @@ const Sidebar = () => {
 					<ListItem
 						disablePadding
 						sx={{
-							paddingRight: '10px',
+							paddingRight: isMobile ? '' : '10px',
 						}}>
 						<ListItemButton>
 							<ListItemIcon>
 								<InboxRoundedIcon />
 							</ListItemIcon>
-							<ListItemText primary='Inbox' />
+							{!isMobile && <ListItemText primary='Inbox' />}
 						</ListItemButton>
 					</ListItem>
 					<ListItem
 						disablePadding
 						sx={{
-							paddingRight: '10px',
+							paddingRight: isMobile ? '' : '10px',
 						}}>
 						<ListItemButton>
 							<ListItemIcon>
 								<StarBorderSharpIcon />
 							</ListItemIcon>
-							<ListItemText primary='Starred' />
+							{!isMobile && <ListItemText primary='Starred' />}
 						</ListItemButton>
 					</ListItem>
 					<ListItem
 						disablePadding
 						sx={{
-							paddingRight: '10px',
+							paddingRight: isMobile ? '' : '10px',
 						}}>
 						<ListItemButton>
 							<ListItemIcon>
 								<SendOutlinedIcon />
 							</ListItemIcon>
-							<ListItemText primary='Sent' />
+							{!isMobile && <ListItemText primary='Sent' />}
 						</ListItemButton>
 					</ListItem>
 					<ListItem
 						disablePadding
 						sx={{
-							paddingRight: '10px',
+							paddingRight: isMobile ? '' : '10px',
 						}}>
 						<ListItemButton>
 							<ListItemIcon>
 								<InsertDriveFileOutlinedIcon />
 							</ListItemIcon>
-							<ListItemText primary='Drafts' />
+							{!isMobile && <ListItemText primary='Drafts' />}
 						</ListItemButton>
 					</ListItem>
 					<ListItem
 						disablePadding
 						sx={{
-							paddingRight: '10px',
+							paddingRight: isMobile ? '' : '10px',
 						}}>
 						<ListItemButton>
 							<ListItemIcon>
 								<ReportGmailerrorredOutlinedIcon />
 							</ListItemIcon>
-							<ListItemText primary='Spam' />
+							{!isMobile && <ListItemText primary='Spam' />}
 						</ListItemButton>
 					</ListItem>
 					<ListItem
 						disablePadding
 						sx={{
-							paddingRight: '10px',
+							paddingRight: isMobile ? '' : '10px',
 						}}>
 						<ListItemButton>
 							<ListItemIcon>
 								<DeleteOutlinedIcon />
 							</ListItemIcon>
-							<ListItemText primary='Bin' />
+							{!isMobile && <ListItemText primary='Bin' />}
 						</ListItemButton>
 					</ListItem>
 					<ListItem
 						disablePadding
 						sx={{
-							paddingRight: '10px',
+							paddingRight: isMobile ? '' : '10px',
 						}}>
 						<ListItemButton onClick={handleClick}>
 							<ListItemIcon>
@@ -164,86 +181,102 @@ const Sidebar = () => {
 									<KeyboardArrowDownOutlinedIcon />
 								)}
 							</ListItemIcon>
-							<ListItemText primary={open ? 'Less' : 'More'} />
+							{!isMobile && (
+								<ListItemText
+									primary={open ? 'Less' : 'More'}
+								/>
+							)}
 						</ListItemButton>
 					</ListItem>
 					<Collapse in={open} timeout='auto' unmountOnExit>
 						<List
 							disablePadding
 							sx={{
-								paddingRight: '10px',
+								paddingRight: isMobile ? '' : '10px',
 							}}>
 							<ListItem
 								disablePadding
 								sx={{
-									paddingRight: '10px',
+									paddingRight: isMobile ? '' : '10px',
 								}}>
 								<ListItemButton>
 									<ListItemIcon>
 										<QueryBuilderOutlinedIcon />
 									</ListItemIcon>
-									<ListItemText primary='Snoozed' />
+									{!isMobile && (
+										<ListItemText primary='Snoozed' />
+									)}
 								</ListItemButton>
 							</ListItem>
 							<ListItem
 								disablePadding
 								sx={{
-									paddingRight: '10px',
+									paddingRight: isMobile ? '' : '10px',
 								}}>
 								<ListItemButton>
 									<ListItemIcon>
 										<LabelOutlinedIcon />
 									</ListItemIcon>
-									<ListItemText primary='Important' />
+									{!isMobile && (
+										<ListItemText primary='Important' />
+									)}
 								</ListItemButton>
 							</ListItem>
 							<ListItem
 								disablePadding
 								sx={{
-									paddingRight: '10px',
+									paddingRight: isMobile ? '' : '10px',
 								}}>
 								<ListItemButton>
 									<ListItemIcon>
 										<ChatOutlinedIcon />
 									</ListItemIcon>
-									<ListItemText primary='Chats' />
+									{!isMobile && (
+										<ListItemText primary='Chats' />
+									)}
 								</ListItemButton>
 							</ListItem>
 							<ListItem
 								disablePadding
 								sx={{
-									paddingRight: '10px',
+									paddingRight: isMobile ? '' : '10px',
 								}}>
 								<ListItemButton>
 									<ListItemIcon>
 										<ScheduleSendOutlinedIcon />
 									</ListItemIcon>
-									<ListItemText primary='Scheduled' />
+									{!isMobile && (
+										<ListItemText primary='Scheduled' />
+									)}
 								</ListItemButton>
 							</ListItem>
 
 							<ListItem
 								disablePadding
 								sx={{
-									paddingRight: '10px',
+									paddingRight: isMobile ? '' : '10px',
 								}}>
 								<ListItemButton>
 									<ListItemIcon>
 										<SettingsOutlinedIcon />
 									</ListItemIcon>
-									<ListItemText primary='Manage labels' />
+									{!isMobile && (
+										<ListItemText primary='Manage labels' />
+									)}
 								</ListItemButton>
 							</ListItem>
 							<ListItem
 								disablePadding
 								sx={{
-									paddingRight: '10px',
+									paddingRight: isMobile ? '' : '10px',
 								}}>
 								<ListItemButton>
 									<ListItemIcon>
 										<AddOutlinedIcon />
 									</ListItemIcon>
-									<ListItemText primary='Create new label' />
+									{!isMobile && (
+										<ListItemText primary='Create new label' />
+									)}
 								</ListItemButton>
 							</ListItem>
 						</List>

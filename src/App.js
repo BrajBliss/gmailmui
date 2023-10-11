@@ -56,7 +56,7 @@ function App() {
 					overflow={'hidden'}>
 					<Sidebar />
 					<Feed />
-					<Plugins />
+					{/* <Plugins /> */}
 				</Stack>
 			</Box>
 		</ThemeProvider>

@@ -1,12 +1,22 @@
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import TopFeed from './TopFeed';
 import Mails from './Mails';
 import BottomFeed from './BottomFeed';
 
 const Feed = () => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 	return (
-		<Box flex={5} display='flex' flexDirection='column' overflow='hidden'>
+		<Box
+			sx={{
+				flex: isMobile ? '' : '5',
+				width: isMobile ? '325px' : '',
+			}}
+			display='flex'
+			flexDirection='column'
+			overflow='hidden'>
 			<Stack
 				direction={'column'}
 				bgcolor={'#2C2C2C'}

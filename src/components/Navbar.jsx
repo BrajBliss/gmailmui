@@ -8,6 +8,8 @@ import {
 	Tooltip,
 	Typography,
 	styled,
+	useMediaQuery,
+	useTheme,
 } from '@mui/material';
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -18,6 +20,9 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 const Navbar = () => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 	return (
 		<AppBar
 			position='sticky'
@@ -41,15 +46,17 @@ const Navbar = () => {
 						// backgroundColor: 'red',
 						height: '100%',
 					}}>
-					<Tooltip title='Main menu'>
-						<IconButton
-							size='large'
-							edge='start'
-							color='inherit'
-							aria-label='menu'>
-							<MenuIcon />
-						</IconButton>
-					</Tooltip>
+					{!isMobile && (
+						<Tooltip title='Main menu'>
+							<IconButton
+								size='large'
+								edge='start'
+								color='inherit'
+								aria-label='menu'>
+								<MenuIcon />
+							</IconButton>
+						</Tooltip>
+					)}
 					<Typography variant='h5'>Gmail</Typography>
 				</Box>
 				<Box
@@ -69,11 +76,12 @@ const Navbar = () => {
 							backgroundColor: '#474747',
 							padding: '0 10px',
 							borderRadius: '50px',
-							width: '50%',
+							width: isMobile ? '30%' : '50%',
 							height: '50px',
 							display: 'flex',
 							justifyContent: 'space-between',
 							alignItems: 'center',
+							marginLeft: isMobile && '10px',
 						}}>
 						<Box
 							sx={{
@@ -81,15 +89,17 @@ const Navbar = () => {
 								justifyContent: 'space-between',
 								alignItems: 'center',
 							}}>
-							<Tooltip title='Search'>
-								<IconButton
-									size='large'
-									edge='start'
-									color='inherit'
-									aria-label='search'>
-									<SearchIcon />
-								</IconButton>
-							</Tooltip>
+							{!isMobile && (
+								<Tooltip title='Search'>
+									<IconButton
+										size='large'
+										edge='start'
+										color='inherit'
+										aria-label='search'>
+										<SearchIcon />
+									</IconButton>
+								</Tooltip>
+							)}
 							<InputBase
 								placeholder='Search mail'
 								style={{
@@ -97,15 +107,17 @@ const Navbar = () => {
 								}}
 							/>
 						</Box>
-						<Tooltip title='Show search options'>
-							<IconButton
-								size='large'
-								edge='start'
-								color='inherit'
-								aria-label='searchOptions'>
-								<TuneIcon />
-							</IconButton>
-						</Tooltip>
+						{!isMobile && (
+							<Tooltip title='Show search options'>
+								<IconButton
+									size='large'
+									edge='start'
+									color='inherit'
+									aria-label='searchOptions'>
+									<TuneIcon />
+								</IconButton>
+							</Tooltip>
+						)}
 					</Box>
 					<Box
 						sx={{

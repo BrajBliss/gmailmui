@@ -8,9 +8,20 @@ import HorizontalSplitSharpIcon from '@mui/icons-material/HorizontalSplitSharp';
 import KeyboardAltSharpIcon from '@mui/icons-material/KeyboardAltSharp';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
-import { Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
+import {
+	Box,
+	IconButton,
+	Toolbar,
+	Tooltip,
+	Typography,
+	useMediaQuery,
+	useTheme,
+} from '@mui/material';
 
 const TopFeed = () => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
 	return (
 		<Toolbar
 			disableGutters
@@ -116,27 +127,29 @@ const TopFeed = () => {
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}>
-				<Box
-					sx={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-						padding: '10px',
-						cursor: 'pointer',
-						':hover': {
-							backgroundColor: '#4A4A4A',
-							transition: '0.3s ease-in-out',
-							borderRadius: '5px',
-						},
-					}}>
-					<Typography
+				{!isMobile && (
+					<Box
 						sx={{
-							fontSize: '13px',
-							color: '#BABABA',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+							padding: '10px',
+							cursor: 'pointer',
+							':hover': {
+								backgroundColor: '#4A4A4A',
+								transition: '0.3s ease-in-out',
+								borderRadius: '5px',
+							},
 						}}>
-						1-50 of 166
-					</Typography>
-				</Box>
+						<Typography
+							sx={{
+								fontSize: '13px',
+								color: '#BABABA',
+							}}>
+							1-50 of 166
+						</Typography>
+					</Box>
+				)}
 
 				<Tooltip title='Newer'>
 					<IconButton

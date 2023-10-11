@@ -1,7 +1,10 @@
-import { Toolbar, Typography } from '@mui/material';
+import { Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 
 const BottomFeed = () => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
 	return (
 		<Toolbar
 			sx={{
@@ -12,7 +15,7 @@ const BottomFeed = () => {
 			}}>
 			<Typography
 				sx={{
-					fontSize: '13px',
+					fontSize: isMobile ? '9px' : '13px',
 					color: '#BABABA',
 					cursor: 'pointer',
 					':hover': {
@@ -24,7 +27,7 @@ const BottomFeed = () => {
 			</Typography>
 			<Typography
 				sx={{
-					fontSize: '13px',
+					fontSize: isMobile ? '9px' : '13px',
 					color: '#BABABA',
 					cursor: 'pointer',
 					':hover': {
@@ -36,7 +39,7 @@ const BottomFeed = () => {
 			</Typography>
 			<Typography
 				sx={{
-					fontSize: '13px',
+					fontSize: isMobile ? '9px' : '13px',
 					cursor: 'pointer',
 					':hover': {
 						// just add underline on hover

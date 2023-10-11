@@ -5,12 +5,17 @@ import {
 	ListItemButton,
 	ListItemIcon,
 	Typography,
+	useMediaQuery,
+	useTheme,
 } from '@mui/material';
 import React, { useState } from 'react';
 import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 
 const Mail = (props) => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 	const [starred, setStarred] = useState(false);
 
 	const handleStarClick = () => {
@@ -21,6 +26,7 @@ const Mail = (props) => {
 			<ListItemButton
 				sx={{
 					display: 'flex',
+					flexDirection: isMobile && 'column',
 					alignItems: 'center',
 					justifyContent: 'space-between',
 					backgroundColor: props.read ? '#161616' : '#2C2C2C',
@@ -29,7 +35,10 @@ const Mail = (props) => {
 					sx={{
 						display: 'flex',
 						alignItems: 'center',
-						justifyContent: 'space-around',
+						justifyContent: isMobile
+							? 'space-between'
+							: 'space-around',
+						gap: isMobile ? '1rem' : '',
 					}}>
 					<Box
 						sx={{
@@ -63,13 +72,15 @@ const Mail = (props) => {
 						}}>
 						Community Mailer
 					</Typography>
+					{isMobile && <Typography>14:23</Typography>}
 				</Box>
 				<Box
 					sx={{
 						display: 'flex',
+						flexDirection: isMobile && 'column',
 						alignItems: 'center',
 						justifyContent: 'space-between',
-						gap: '1rem',
+						gap: isMobile ? '' : '1rem',
 					}}>
 					<Typography
 						sx={{
@@ -78,21 +89,24 @@ const Mail = (props) => {
 						}}>
 						This is the subject line which is in bold
 					</Typography>
-					<Typography
-						sx={{
-							color: '#787778',
-						}}>
-						-
-					</Typography>
+					{!isMobile && (
+						<Typography
+							sx={{
+								color: '#787778',
+							}}>
+							-
+						</Typography>
+					)}
 					<Typography
 						sx={{
 							color: '#8B8B8B',
 						}}>
-						This is the snippet of the mail which is supposed to cut
-						off right here...
+						{isMobile
+							? 'This snipped should cut off right here...'
+							: 'This is the snippet of the mail which is supposed to cut off right here...'}
 					</Typography>
 				</Box>
-				<Typography>14:23</Typography>
+				{!isMobile && <Typography>14:23</Typography>}
 			</ListItemButton>
 		</ListItem>
 	);
