@@ -38,8 +38,8 @@ const Mail = (props) => {
 						justifyContent: isMobile
 							? 'space-between'
 							: 'space-around',
-						// THIS RIGHT HERE
-						width: isMobile ? '92%' : 'auto',
+
+						width: isMobile ? '100%' : 'auto',
 					}}>
 					<Box
 						sx={{
@@ -83,6 +83,7 @@ const Mail = (props) => {
 						alignItems: 'center',
 						justifyContent: 'space-between',
 						gap: isMobile ? '' : '1rem',
+						width: isMobile ? '100%' : 'auto',
 					}}>
 					<Typography
 						sx={{
@@ -91,6 +92,7 @@ const Mail = (props) => {
 							textAlign: 'left',
 							fontSize: isMobile && '14px',
 							alignSelf: 'flex-start',
+							width: isMobile ? '100%' : 'auto',
 						}}>
 						This subject might be bold
 					</Typography>
@@ -107,6 +109,7 @@ const Mail = (props) => {
 							color: '#8B8B8B',
 							textAlign: 'left',
 							fontSize: isMobile && '14px',
+							width: isMobile ? '100%' : 'auto',
 						}}>
 						{isMobile
 							? 'This snippet should cut off right here...'
