@@ -20,7 +20,7 @@ const Feed = () => {
 			<Stack
 				direction={'column'}
 				bgcolor={'#2C2C2C'}
-				height={isMobile ? '96%' : '98%'}
+				height={isMobile ? '94%' : '98%'}
 				sx={{
 					display: 'flex',
 					flexDirection: 'column',

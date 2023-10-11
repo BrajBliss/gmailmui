@@ -185,104 +185,109 @@ const TopFeed = () => {
 					</IconButton>
 				</Tooltip>
 
-				<Tooltip title='Toggle split pane mode'>
-					<Box
-						sx={{
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-						}}>
+				{!isMobile && (
+					<Tooltip title='Toggle split pane mode'>
 						<Box
 							sx={{
-								padding: '5px',
 								display: 'flex',
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: '30px',
-								':hover': {
-									backgroundColor: '#4A4A4A',
-									transition: '0.3s ease-in-out',
-									borderRadius: '5px',
-								},
 							}}>
-							<HorizontalSplitSharpIcon
+							<Box
 								sx={{
-									fontSize: '20px',
-								}}
-							/>
+									padding: '5px',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									height: '30px',
+									':hover': {
+										backgroundColor: '#4A4A4A',
+										transition: '0.3s ease-in-out',
+										borderRadius: '5px',
+									},
+								}}>
+								<HorizontalSplitSharpIcon
+									sx={{
+										fontSize: '20px',
+									}}
+								/>
+							</Box>
+							<Box
+								sx={{
+									ml: '-5px',
+									padding: '5px',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									height: '30px',
+									width: '10px',
+									':hover': {
+										backgroundColor: '#4A4A4A',
+										transition: '0.3s ease-in-out',
+										borderRadius: '5px',
+									},
+								}}>
+								<ArrowDropDownOutlinedIcon
+									sx={{
+										fontSize: '20px',
+									}}
+								/>
+							</Box>
 						</Box>
+					</Tooltip>
+				)}
+
+				{!isMobile && (
+					<Tooltip title='Input tools on/off (Ctrl-Shift-K)'>
 						<Box
 							sx={{
-								ml: '-5px',
-								padding: '5px',
 								display: 'flex',
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: '30px',
-								width: '10px',
-								':hover': {
-									backgroundColor: '#4A4A4A',
-									transition: '0.3s ease-in-out',
-									borderRadius: '5px',
-								},
 							}}>
-							<ArrowDropDownOutlinedIcon
+							<Box
 								sx={{
-									fontSize: '20px',
-								}}
-							/>
-						</Box>
-					</Box>
-				</Tooltip>
-				<Tooltip title='Input tools on/off (Ctrl-Shift-K)'>
-					<Box
-						sx={{
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-						}}>
-						<Box
-							sx={{
-								padding: '5px',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
-								height: '30px',
-								':hover': {
-									backgroundColor: '#4A4A4A',
-									transition: '0.3s ease-in-out',
-									borderRadius: '5px',
-								},
-							}}>
-							<KeyboardAltSharpIcon
+									padding: '5px',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									height: '30px',
+									':hover': {
+										backgroundColor: '#4A4A4A',
+										transition: '0.3s ease-in-out',
+										borderRadius: '5px',
+									},
+								}}>
+								<KeyboardAltSharpIcon
+									sx={{
+										fontSize: '20px',
+									}}
+								/>
+							</Box>
+							<Box
 								sx={{
-									fontSize: '20px',
-								}}
-							/>
+									ml: '-5px',
+									padding: '5px',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									height: '30px',
+									width: '10px',
+									':hover': {
+										backgroundColor: '#4A4A4A',
+										transition: '0.3s ease-in-out',
+										borderRadius: '5px',
+									},
+								}}>
+								<ArrowDropDownOutlinedIcon
+									sx={{
+										fontSize: '20px',
+									}}
+								/>
+							</Box>
 						</Box>
-						<Box
-							sx={{
-								ml: '-5px',
-								padding: '5px',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
-								height: '30px',
-								width: '10px',
-								':hover': {
-									backgroundColor: '#4A4A4A',
-									transition: '0.3s ease-in-out',
-									borderRadius: '5px',
-								},
-							}}>
-							<ArrowDropDownOutlinedIcon
-								sx={{
-									fontSize: '20px',
-								}}
-							/>
-						</Box>
-					</Box>
-				</Tooltip>
+					</Tooltip>
+				)}
 			</Box>
 		</Toolbar>
 	);

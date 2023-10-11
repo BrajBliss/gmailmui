@@ -38,13 +38,15 @@ const Mail = (props) => {
 						justifyContent: isMobile
 							? 'space-between'
 							: 'space-around',
-						gap: isMobile ? '1rem' : '',
+						// THIS RIGHT HERE
+						width: isMobile ? '92%' : 'auto',
 					}}>
 					<Box
 						sx={{
 							display: 'flex',
 							alignItems: 'center',
 							justifyContent: 'center',
+							order: isMobile && '2',
 						}}>
 						<Checkbox size='small' />
 						<ListItemIcon onClick={handleStarClick}>
@@ -67,12 +69,12 @@ const Mail = (props) => {
 					<Typography
 						sx={{
 							fontWeight: props.read ? 'normal' : 'bold',
-							marginLeft: '-1.2rem',
+							marginRight: isMobile ? '1.5rem' : '1rem',
 							color: props.read ? '#BABABA' : '',
+							fontSize: isMobile && '14px',
 						}}>
-						Community Mailer
+						Sender Name
 					</Typography>
-					{isMobile && <Typography>14:23</Typography>}
 				</Box>
 				<Box
 					sx={{
@@ -86,8 +88,11 @@ const Mail = (props) => {
 						sx={{
 							fontWeight: props.read ? 'normal' : 'bold',
 							color: props.read ? '#BABABA' : '',
+							textAlign: 'left',
+							fontSize: isMobile && '14px',
+							alignSelf: 'flex-start',
 						}}>
-						This is the subject line which is in bold
+						This subject might be bold
 					</Typography>
 					{!isMobile && (
 						<Typography
@@ -100,9 +105,11 @@ const Mail = (props) => {
 					<Typography
 						sx={{
 							color: '#8B8B8B',
+							textAlign: 'left',
+							fontSize: isMobile && '14px',
 						}}>
 						{isMobile
-							? 'This snipped should cut off right here...'
+							? 'This snippet should cut off right here...'
 							: 'This is the snippet of the mail which is supposed to cut off right here...'}
 					</Typography>
 				</Box>

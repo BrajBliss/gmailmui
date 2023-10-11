@@ -77,7 +77,7 @@ const Navbar = () => {
 							padding: '0 10px',
 							borderRadius: '50px',
 							width: isMobile ? '30%' : '50%',
-							height: '50px',
+							height: isMobile ? '40px' : '50px',
 							display: 'flex',
 							justifyContent: 'space-between',
 							alignItems: 'center',
@@ -124,7 +124,7 @@ const Navbar = () => {
 							display: 'flex',
 							alignItems: 'center',
 							justifyContent: 'space-between',
-							gap: '5px',
+							gap: !isMobile && '5px',
 						}}>
 						<Tooltip title='Help'>
 							<IconButton
