@@ -88,7 +88,9 @@ const Sidebar = () => {
 			</IconButton>
 			<Box
 				sx={{
-					overflow: isMobile ? '' : 'auto',
+					// overflow: isMobile ? '' : 'auto',
+					overflowX: 'hidden',
+					overflowY: 'auto',
 				}}>
 				<List
 					// overflow={'auto'}
