@@ -28,6 +28,7 @@ import ScheduleSendOutlinedIcon from '@mui/icons-material/ScheduleSendOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import Compose from './Compose';
 
 const Sidebar = () => {
 	const theme = useTheme();
@@ -35,9 +36,14 @@ const Sidebar = () => {
 	// console.log(`isMobile: ${isMobile}`);
 
 	const [open, setOpen] = useState(false);
+	const [dialog, setDialog] = useState(false);
 
 	const handleClick = () => {
 		setOpen(!open);
+	};
+
+	const handleDialog = () => {
+		setDialog(!dialog);
 	};
 
 	return (
@@ -51,6 +57,7 @@ const Sidebar = () => {
 				width: isMobile ? '60px' : '',
 			}}>
 			<IconButton
+				onClick={handleDialog}
 				size='large'
 				aria-label='compose'
 				disablePadding
@@ -86,6 +93,7 @@ const Sidebar = () => {
 					</Typography>
 				)}
 			</IconButton>
+			<Compose open={dialog} handleClose={handleDialog} />
 			<Box
 				sx={{
 					// overflow: isMobile ? '' : 'auto',

@@ -31,6 +31,13 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiInputLabel: {
+			styleOverrides: {
+				root: {
+					color: '#CECECE',
+				},
+			},
+		},
 	},
 	palette: {
 		background: {
