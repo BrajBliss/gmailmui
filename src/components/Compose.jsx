@@ -157,11 +157,12 @@ const Compose = ({ open, handleClose }) => {
 						margin='normal'
 						id='content'
 						type='text'
-						variant='standard'
+						variant='outlined'
 						InputProps={{
 							style: {
 								fontSize: '14px',
 								color: '#000',
+								padding: '0 3px',
 							},
 						}}
 						sx={{
@@ -173,6 +174,9 @@ const Compose = ({ open, handleClose }) => {
 								{
 									borderBottom: 'none',
 								},
+							'.MuiOutlinedInput-notchedOutline': {
+								border: 'none',
+							},
 						}}
 					/>
 				</DialogContent>
