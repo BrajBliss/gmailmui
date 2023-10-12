@@ -165,13 +165,13 @@ const Compose = ({ open, handleClose }) => {
 							},
 						}}
 						sx={{
+							'&:hover': {
+								borderBottom: 'none',
+							},
+
 							'.MuiInput-underline:before, .MuiInput-underline:after':
 								{
 									borderBottom: 'none',
-								},
-							'.css-1wvleqa-MuiInputBase-root-MuiInput-root:before':
-								{
-									borderBottom: 'none !important', // Override the border-bottom style
 								},
 						}}
 					/>
