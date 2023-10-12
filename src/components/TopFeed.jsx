@@ -6,7 +6,6 @@ import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRig
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import HorizontalSplitSharpIcon from '@mui/icons-material/HorizontalSplitSharp';
 import KeyboardAltSharpIcon from '@mui/icons-material/KeyboardAltSharp';
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import {
 	Box,

@@ -43,6 +43,12 @@ const theme = createTheme({
 		background: {
 			default: '#111111',
 		},
+		customBottomBorderColor: {
+			main: '#f5f7f8d7',
+		},
+		plainWhiteColor: {
+			main: '#fff',
+		},
 	},
 });
 
