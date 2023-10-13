@@ -77,7 +77,11 @@ const Compose = ({ open, handleClose }) => {
 							right: !isExpanded && 16,
 							width: isExpanded ? '80%' : 'auto',
 							maxWidth: isExpanded ? '80%' : isMobile ? 300 : 450,
-							height: isExpanded ? '90vh' : '460px',
+							height: isExpanded
+								? isMobile
+									? '80vh'
+									: '90vh'
+								: '460px',
 							borderTopRightRadius: '15px',
 							borderTopLeftRadius: '15px',
 						}}>
